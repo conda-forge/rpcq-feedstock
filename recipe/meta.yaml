@@ -1,5 +1,5 @@
 {% set name = "rpcq" %}
-{% set version = "2.2.1" %}
+{% set version = "2.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b57487ffaea19d427fb280d30138f11e9f40ebf2b7ebe9aa23ce4785847db460
+  sha256: 463c7741a0a8479c52aca147c52528891f48ba1b54348512694b84740d95f579
 
 build:
   noarch: python
@@ -20,6 +20,7 @@ requirements:
     - pip
   run:
     - python
+    - dataclasses  # [py36]
     - future
     - msgpack-python  >=0.5.2
     - python-rapidjson
