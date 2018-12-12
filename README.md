@@ -14,8 +14,9 @@ Summary: The RPC framework and message specification for Rigetti QCS
 Current build status
 ====================
 
-All platforms:
-[![noarch](https://img.shields.io/circleci/project/github/conda-forge/rpcq-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/rpcq-feedstock)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/rpcq-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/rpcq-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/rpcq-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/rpcq-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/rpcq-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/rpcq-feedstock/branch/master)
 
 Current release info
 ====================
