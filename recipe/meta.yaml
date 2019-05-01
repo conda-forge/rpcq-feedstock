@@ -1,5 +1,5 @@
 {% set name = "rpcq" %}
-{% set version = "2.5.0" %}
+{% set version = "2.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 661c9f5b1bf0adf708d9dbeea89e60c071211e137447cc6d2d73d2e75954824b
+  sha256: 75593916f8619460c89859e3475b0147c1ee840c267e742a7117ee20088e1751
 
 build:
   noarch: python
