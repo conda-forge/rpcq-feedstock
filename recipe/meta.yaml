@@ -1,5 +1,5 @@
 {% set name = "rpcq" %}
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5a0ebb6df50db9d468ad352e79e38c4e61d884ef2eb134cc32083f9ea7e62be8
+  sha256: c5585af7c3d0ec605d8cf952e7e6fb4bdd3cf6f7109df66d7e976fb75c38c8cf
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
@@ -36,7 +36,7 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
-  summary: 'The RPC framework and message specification for Rigetti QCS'
+  summary: The RPC framework and message specification for Rigetti QCS
   dev_url: https://github.com/rigetticomputing/rpcq
 
 extra:
