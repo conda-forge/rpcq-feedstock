@@ -20,12 +20,10 @@ requirements:
     - pip
   run:
     - python
-    - future
-    - msgpack-python  >=0.5.2
+    - msgpack-python  >=0.6,<1.0
     - python-rapidjson
     - pyzmq  >=17
     - ruamel.yaml
-    - typing
 
 test:
   imports:
