@@ -5,7 +5,7 @@ Home: https://www.rigetti.com
 
 Package license: Apache-2.0
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: The RPC framework and message specification for Rigetti QCS
 
@@ -116,6 +116,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@appleby](https://github.com/appleby/)
 * [@jmackeyrigetti](https://github.com/jmackeyrigetti/)
+* [@kilimanjaro](https://github.com/kilimanjaro/)
+* [@notmgsk](https://github.com/notmgsk/)
 
