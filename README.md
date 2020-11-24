@@ -5,11 +5,11 @@ Home: https://www.rigetti.com
 
 Package license: Apache-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/rpcq-feedstock/blob/master/LICENSE.txt)
 
 Summary: The RPC framework and message specification for Rigetti QCS
 
-
+Development: https://github.com/rigetticomputing/rpcq
 
 Current build status
 ====================
