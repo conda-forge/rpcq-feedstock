@@ -1,0 +1,76 @@
+commit 801e7a70c69d17ba26a63b4cef32aa78510c8740
+Author: Kalan <22137047+kalzoo@users.noreply.github.com>
+Date:   Thu Mar 23 16:10:14 2023 -0700
+
+    Allow msgpack (0.6 <= v < 2.0) (#156)
+    
+    * Update msgpack
+    
+    * Relax msgpack version requirement to avoid breaking change
+    
+    ---------
+    
+    Co-authored-by: James Clark <james.clark@zapatacomputing.com>
+
+diff --git a/VERSION.txt b/VERSION.txt
+index 30291cb..afad818 100644
+--- a/VERSION.txt
++++ b/VERSION.txt
+@@ -1 +1 @@
+-3.10.0
++3.11.0
+diff --git a/requirements.txt b/requirements.txt
+index 2715577..4427041 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -3,9 +3,7 @@
+ #
+ # https://github.com/conda-forge/rpcq-feedstock/blob/master/recipe/meta.yaml
+ 
+-# msgpack 1.0 introduced breaking changes. See
+-# https://github.com/rigetti/rpcq/issues/118
+-msgpack >=0.6,<1.0
++msgpack >=0.6,<2.0
+ python-rapidjson
+ pyzmq>=17
+ ruamel.yaml
+diff --git a/rpcq/_base.py b/rpcq/_base.py
+index 5b973b7..763e47c 100644
+--- a/rpcq/_base.py
++++ b/rpcq/_base.py
+@@ -173,8 +173,14 @@ def from_msgpack(b, *, max_bin_len=MAX_BIN_LEN, max_str_len=MAX_STR_LEN):
+     #   Otherwise, unpack to Python str (or unicode on Python 2) by decoding with UTF-8 encoding (recommended).
+     #   In msgpack >= 0.6, max_xxx_len is reduced from 2 GB to 1 MB, so we set the relevant ones
+     #       to 2 GB as to not run into issues with the size of the values returned from rpcq
+-    return msgpack.loads(b, object_hook=_object_hook, raw=False,
+-                         max_bin_len=max_bin_len, max_str_len=max_str_len)
++    return msgpack.loads(
++        b,
++        object_hook=_object_hook,
++        raw=False,
++        max_bin_len=max_bin_len,
++        max_str_len=max_str_len,
++        strict_map_key=False,
++    )
+ 
+ 
+ def to_json(obj):
+diff --git a/setup.py b/setup.py
+index ffeb598..a2af5b7 100644
+--- a/setup.py
++++ b/setup.py
+@@ -51,10 +51,10 @@ setup(
+     long_description=long_description,
+     long_description_content_type='text/markdown',
+     install_requires=[
+-        'msgpack>=0.6,<1.0',
+-        'python-rapidjson',
+-        'pyzmq>=17',
+-        'ruamel.yaml',
++        "msgpack>=0.6,<2.0",
++        "python-rapidjson",
++        "pyzmq>=17",
++        "ruamel.yaml",
+     ],
+     keywords='quantum rpc qcs',
+     python_requires='>=3.6',
